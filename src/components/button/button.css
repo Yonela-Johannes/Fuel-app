@@ -1,0 +1,16 @@
+.button{
+    margin-top: 20px;
+    border-radius: 10px;;
+    padding: 10px 20px;
+    background-color: #484646;
+    border: 1px solid gray;
+    transition: .1s ease-in;
+}
+.name{
+    color: white;
+}
+
+.button:hover{
+    background-color: transparent;
+        border: 1px solid rgb(29, 29, 29);
+}
