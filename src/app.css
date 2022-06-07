@@ -5,6 +5,7 @@
   box-sizing: border-box;
 }
 :root{
+  /* primary colors */
   --default-cl: #ffffff;
   --main-cl: #F0A45E;
   --main-bg-cl: #2C2B2B;
