@@ -11,6 +11,7 @@
   --main-bg-cl: #2C2B2B;
   --secondary-bg-cl: #484646;
 }
+/* main app */
 .app{
   display: flex;
   flex-direction: column;
