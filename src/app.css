@@ -21,6 +21,7 @@
     background-color: var(--main-bg-cl);
     min-height: 100vh;
 }
+/* content wrapper */
 .wrapper{
     height: 75vh;
     padding: 10px;
