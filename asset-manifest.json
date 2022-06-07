@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Fuel-app/static/css/main.a0b3c99a.css",
+    "main.js": "/Fuel-app/static/js/main.43ba1778.js",
+    "index.html": "/Fuel-app/index.html",
+    "main.a0b3c99a.css.map": "/Fuel-app/static/css/main.a0b3c99a.css.map",
+    "main.43ba1778.js.map": "/Fuel-app/static/js/main.43ba1778.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a0b3c99a.css",
+    "static/js/main.43ba1778.js"
+  ]
+}
