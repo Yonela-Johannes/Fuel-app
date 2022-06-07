@@ -1,9 +1,10 @@
+import { HomeScreen } from './screens/HomeScreen';
 import './app.css';
 
 function App() {
   return (
     <div className="app">
-      Yonela
+      <HomeScreen />
     </div>
   );
 }
