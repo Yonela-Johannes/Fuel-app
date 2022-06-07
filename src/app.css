@@ -29,7 +29,7 @@
     width: 100vw;
     background-color: var(--secondary-bg-cl);
 }
-
+/* main content wrapper */
 .content{
     display: flex;
     flex-direction: column;
