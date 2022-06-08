@@ -8,9 +8,6 @@ mocha.run();
 
 // I was just setting up mocha
 describe("Fuel Forecast Function", () => {
-    it('should get the selected fuel from the user', () => {
-        assert.equal('yes', 'yes')
-    });
 
     it('should be able to calculate the how much 10 litres of petrol costs if the petrol price is R15.35 per liter', () => {
    
