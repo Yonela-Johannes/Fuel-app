@@ -12,15 +12,24 @@
   --secondary-bg-cl: #484646;
   --primary--desktop-bg: rgb(182, 182, 182);
 }
+
+.nav {
+  display: hidden;
+  position: absolute;
+  top: 1;
+  background-color: red;
+  
+}
 /* main app */
 .app{
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center; */
+  /* align-items: center; */
     width: 100vw;
-    background-color: var(--main-bg-cl);
-    min-height: 100vh;
+    /* background-color: var(--main-bg-cl); */
+    /* min-height: 100vh; */
 }
 .wrapper{
   display: flex;
@@ -57,7 +66,16 @@ input{
   font-size: 20px;
 }
 @media screen and (min-width: 752px){
+  .nav {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    background-color: var(--main-cl);
+    border-bottom: .2px solid rgb(150, 150, 150);
+  }
   .app{
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: center;

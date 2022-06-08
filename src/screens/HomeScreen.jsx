@@ -3,8 +3,7 @@ import './screens.css'
 export const HomeScreen = () => {
   return (
     <div>
-      {/* Main content */}
-        <Main />
+      <Main />
     </div>
   )
 }
