@@ -9,8 +9,8 @@ export const Main = () => {
     const [selected, setSelected] = useState('Select Fuel')
     let [count, setCount] =useState(0)
 
-    const counter = e => {
-        count <= 0 ? setCount(0) : setCount(count--)
+    const counter = ()=> {
+        count <= 0 ? setCount(0) : setCount(count-1)
     }
   return (
     <div className="main">
@@ -52,7 +52,7 @@ export const Main = () => {
                     <label name="diesel-price">Enter Diesel Price per Liter</label>
                     <div className='bottomContainer'>
                         <div className="counterContainer">
-                                <FaArrowCircleUp className='icon' onClick={e => setCount(count++)}/>
+                                <FaArrowCircleUp className='icon' onClick={() => setCount(count+1)}/>
                                 <p className='count'>{count}</p>
                                 <FaArrowCircleDown className='icon' onClick={counter}/>
                         </div>
