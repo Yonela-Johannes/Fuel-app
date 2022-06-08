@@ -1,22 +1,33 @@
+import { useState } from 'react'
 import './dropdown.css'
 import { AiFillCaretDown } from "react-icons/ai";
+const fuel = ['Petrol', 'Diesel']
 
-
-export const Dropdown = () => {
+export const Dropdown = ({selected, setSelected}) => {
+    const [isActive , setIsActive] = useState(false)
   return (
     <div className='dropdown'>
-        <div className="dropdownBtn">
-            Select Fuel
+        <div className="dropdownBtn" onClick={e => setIsActive(!isActive)}>
+            {selected}
             <AiFillCaretDown className='icon' />
         </div>
-        <div className="dropdownContent">
-            <div className="dropdownItem">
-                Petrol
+        {isActive && 
+            (
+            <div className="dropdownContent" >
+                {fuel.map((elem) => (
+                    <div onClick={(e) => {
+                        setSelected(elem)
+                        setIsActive(false)
+                    }}
+                        className='dropdownItem'
+                    >
+                            {elem}
+                    </div>
+                    ))
+                }
             </div>
-            <div className="dropdownItem">
-                Diesel
-            </div>
-        </div>
+            )
+        }
     </div>
   )
 }

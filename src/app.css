@@ -10,6 +10,7 @@
   --main-cl: #F0A45E;
   --main-bg-cl: #2C2B2B;
   --secondary-bg-cl: #484646;
+  --primary--desktop-bg: rgb(182, 182, 182);
 }
 /* main app */
 .app{
@@ -22,11 +23,15 @@
     min-height: 100vh;
 }
 .wrapper{
-    height: 75vh;
-    padding: 10px;
-    border-radius: 40px;
-    width: 100vw;
-    background-color: var(--secondary-bg-cl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 75vh;
+  padding: 20px 0;
+  border-radius: 40px;
+  width: 100vw;
+  background-color: var(--secondary-bg-cl);
 }
 
 .content{
@@ -52,11 +57,45 @@ input{
   font-size: 20px;
 }
 @media screen and (min-width: 752px){
-    .container{
-        background-color: #f1f1f1;
-        height: 100vh;
-        width: 100vw;
+  .app{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    background: white;
+    background-color: var(--primary--desktop-bg);
+    min-height: 100vh;
+  }
+  .wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100%;
+    padding: 10px;
+    border-radius: 0px;
+    width: 100%;
+    background-color: var(--secondary-bg-cl);
+  }
+  .content{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: var(--default-cl);
+    padding: 10px;
+    height: 100%;
     }
+.mainContent{
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 280px;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid rgb(89, 89, 89);
+}
 }
 
 
