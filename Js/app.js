@@ -44,6 +44,11 @@ const diesel = () => {
                                 <label class='label' name="Amount">Enter diesel Price per Liter</label>           
                                 <input class='fuel-input' type="number" name="Amount"/>
                             </div>`
+
+    userAmountContainer.innerHTML = `<div class='input-container'>
+                                <label class='label' name="Amount">Enter Your amount</label>           
+                                <input class='fuel-input' type="number" name="Amount"/>
+                            </div>`
     dropdownContent.classList.toggle('hide')
 }
 
