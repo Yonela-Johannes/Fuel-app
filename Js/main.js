@@ -6,30 +6,21 @@ console.log(user)
 const enterFuelAmount = document.querySelector('.entered-fuel-amount')
 const amountValue = document.querySelector('.input-amount')
 
-const liter = document.querySelector('.liters')
+const fuelPriceElem = document.querySelector('.fuel-price')
 const calculateButton = document.querySelector('.calc')
 const save = document.querySelector('.save')
 const calcLitres = document.querySelector('.calc-litres')
 const calcAmount = document.querySelector('.calc-amount')
 const litresAmount = document.querySelector('.litres-amount')
+const calcChange = document.querySelector('.calc-change')
 
-const estimatedListData = document.querySelector('.estimated-litres-data')
-const estimatedAmountData = document.querySelector('.estimated-amount-data')
-
-calcLitres.innerHTML = `Estimated Litres: <span class='lit'>${0.00}<span> `
-calcAmount.innerHTML = `Estimated Amount: <span class='rand'>R ${0.00}<span> `
-
-
-estimatedListData.innerHTML = `<div>
-                        ${user.name}
-                        <div>Weekly Estimated Cost</div>
-                        ${user.estimatedLitres.map(lit => lit)}
-                </div>`
-
-estimatedAmountData.innerHTML = `<div>
-                        <div>Weekly Estimated Amount</div>
-                        ${user.estimatedAmount.map(lit => lit)}
-                </div>`
+const defaultAmount = 0
+fuelPriceElem.innerHTML = `Entered Amount: <span class='lit'>R ${defaultAmount.toFixed(2)}<span> `
+calcLitres.innerHTML = `Estimated Litres: <span class='lit'>${defaultAmount} litres<span> `
+calcAmount.innerHTML = `
+    <div class='cost-title'>Cost of litres</div>
+ <div class='lit-container'>Estimated Amount: <span class='rand'>R ${defaultAmount.toFixed(2)}<span></div> `
+calcChange.innerHTML = `change: <span class='lit'>R ${defaultAmount.toFixed(2)}<span> `
 
 const calculateFuel = () => {
     const amount = amountValue.value
@@ -41,12 +32,14 @@ const calculateFuel = () => {
     fuelforecast.fuelCosLitres(enteredLitres)
 
 
-
+    fuelPriceElem.innerHTML = `Entered Amount: <span class='lit'>R ${fuelforecast.getPrice()}<span> `
     calcLitres.innerHTML = `Estimated Litres: <span class='lit'>${fuelforecast.fuelCost()
-        }<span> litres `
-    calcAmount.innerHTML = `Estimated Amount: <span class='rand'> R ${fuelforecast.fuelCosLitres(enteredLitres)
-        }<span>`
-
+        }<span> litres`
+    calcAmount.innerHTML = `
+        <div class='cost-title'>Cost of ${enteredLitres} litres</div>
+    <div class='lit-container'>Estimated Amount: <span class='rand'> R ${fuelforecast.fuelCosLitres(enteredLitres)
+        }<span></div>`
+    calcChange.innerHTML = `change: <span class='lit'>R ${fuelforecast.change(fuelforecast.fuelCosLitres(enteredLitres))}<span> `
 
 }
 

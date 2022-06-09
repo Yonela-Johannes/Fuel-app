@@ -20,11 +20,19 @@ export const FuelForcast = () => {
         const total = price / fuelPrice
         return total.toFixed(2)
     }
-
     const fuelCosLitres = (litres) => {
         const total = fuelPrice * litres
         return total.toFixed(2)
     }
+    const change = (litersTotalAmount) => {
+        const total = price - litersTotalAmount
+        return total.toFixed(2)
+    }
+
+
+
+
+
     // calculations
     function petrolToCost(price) {
         currentPetrolPrice = price;
@@ -75,6 +83,7 @@ export const FuelForcast = () => {
         getPrice,
         fuelCost,
         fuelCosLitres,
+        change,
         petrolToCost,
         getpetrolToCost,
         dieselToCost,

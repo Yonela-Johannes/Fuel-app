@@ -68,7 +68,6 @@
                                     <input class='litres-amount' value="" type="number" />
                                 </div>
                             </div>
-                            <p class='liters'></p>
                         </div>
                         <div class="button calc">Calculate</div>
                     </div>
@@ -79,13 +78,16 @@
         <div class="main second-main">
             <!-- <h1 class="title header">Fuel Forecast</h1> -->
             <div class="second-wrapper">
-                <h3 class="sub-title">Monthly Fuel Forecast</h3>
-                <div class="content">
+                <h3 class="sub-title">Weekly Fuel Forecast</h3>
+                <div class="second-content">
                     <!-- MAIN CONTENT -->
-                    <div class="main-content">
+                    <div class="second-main-content">
+                        <h3 class="fuel-price"></h3>
+                        <h3 class="amount-budget"></h3>
                         <h3 class="calc-litres"></h3>
                         <h3 class="calc-amount"></h3>
-                        <div>
+                        <h3 class="calc-change"></h3>
+                        <div class="save-button-container">
                             <p class="save-budget">Save Budget</p>
                             <div class="button save">Save</div>
                         </div>
@@ -93,15 +95,44 @@
                     <div class="main-content">
                         <div class="user-amount">
                             <label class='label' name="Amount">Data</label>
-                            <div class="estimated-litres-data"></div>
-                            <div class="estimated-amount-data"></div>
+                            <h4>Data of Linda</h4>
+                            <div>
+                                <canvas id="fuelChartForecast"></canvas>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
+        <div class="main third-main">
+            <!-- <h1 class="title header">Fuel Forecast</h1> -->
+            <div class="second-wrapper">
+                <h3 class="sub-title">Monthly Fuel Forecast</h3>
+                <div class="second-content">
+                    <div class="third-main-content">
+                        <label class='label' name="Amount">Data</label>
+                        <h4>Monthly DSata of Linda</h4>
+                        <canvas id="monthlyFuelChartForecast"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main third-main">
+            <!-- <h1 class="title header">Fuel Forecast</h1> -->
+            <div class="second-wrapper">
+                <h3 class="sub-title">Changes in Fuel</h3>
+                <div class="second-content">
+                    <div class="third-main-content">
+                        <label class='label' name="Amount">Data</label>
+                        <h4>Monthly DSata of Linda</h4>
+                        <canvas id="changesInFuelForecast"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./Js//chart.js" type="module"></script>
     <script src="./Js/main.js" type="module"></script>
 </body>
 
