@@ -105,6 +105,14 @@ input{
     border-radius: 15px;
     border: 1px solid rgb(89, 89, 89);
 }
+.user-amount{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    border-radius: 15px;
+}
 
 .label{
     color: rgb(185, 185, 185);
@@ -157,14 +165,16 @@ input{
     width: 300px;
     user-select: none;
     align-items: center;
-    background-color: var(--main-cl);
+    /* background-color: var(--main-cl); */
     border-radius: 5px;
+    border: 1px solid var(--main-cl);
 }
 .dropdown-btn{
     display: flex;
     text-align: center;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
     color: rgb(88, 88, 88);
     padding: 10px;
     font-weight: bold;
@@ -175,7 +185,7 @@ input{
 }
 
 .dropdown-btn:hover{
-    box-shadow: 2px 2px 10px 0px rgba(48, 48, 48, 0.6);
+   background-color: #ffcb9a;
 }
 
 .dropdown-content{
@@ -185,7 +195,7 @@ input{
     border-radius: 5px;
     top: 0;
     display: flex;
-    text-align: center;
+    text-align: start;
     flex-direction: column;
     align-items: center;
     color: rgb(88, 88, 88);
@@ -200,8 +210,9 @@ input{
 }
 
 .dropdown-item:hover{
-    border-radius: 15px;
-    background-color: blanchedalmond;
+    color: black;
+    border-radius: 5px;
+    background-color: rgb(227, 227, 227);
 }
 .hide {
     display: none;
@@ -212,6 +223,14 @@ input{
     object-fit: cover;
     padding: 2px;
     margin: 5px
+}
+.input-container {
+    margin: 15px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 @media screen and (min-width: 752px){
   .nav {

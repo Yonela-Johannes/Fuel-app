@@ -31,28 +31,28 @@
                 <div class="content">
                     <!-- MAIN CONTENT -->
                     <div class="main-content">
-                        <h3>Select Fuel Type</h3>
-                        <div class="dropdown-selection">
-
-                        </div>
+                        <h3 class="label">Select Fuel Type</h3>
                         <!-- Drop down selection -->
                         <div class='dropdown'>
                             <div class='dropdown-btn'>
                                 <p>Select Fuel</p>
                             </div>
-                            <div class='dropdown-content'>
+                            <div class='dropdown-content hide'>
                                 <div class='dropdown-item'>
-                                    <p>Petrol</p>
+                                    <p class="petrol">Petrol</p>
                                 </div>
                                 <div class='dropdown-item'>
-                                    <p>Diesel</p>
+                                    <p class="diesel">Diesel</p>
                                 </div>
                             </div>
                         </div>
+                        <div class="amount"></div>
                     </div>
                     <div class="main-content">
-                        <label class='label' name="Amount">Enter Your {selected} Amount</label>
-                        <input type="number" name="Amount" />
+                        <div class="user-amount">
+                            <label class='label' name="Amount">Enter Your {selected} Amount</label>
+                            <input type="number" name="Amount" disabled />
+                        </div>
                         <h3 class='label'>Enter amount of fuel per liter</h3>
                         <label name="diesel-price">Enter Diesel Price per Liter</label>
                         <div class='bottom-container'>
