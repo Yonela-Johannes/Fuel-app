@@ -22,20 +22,49 @@
                     <p>Name</p>
                 </div>
             </div>
-            <!-- MAIN CONTENT-->
-            <div class="main">
-                <div class="wrapper">
-                    <h1 class="title">Enter Your Details</h1>
+        </div>
+        <!-- MAIN CONTENT-->
+        <div class="main">
+            <h1 class="title header">Fuel Forecast</h1>
+            <div class="wrapper">
+                <h1 class="title">Enter Your Details</h1>
+                <div class="content">
                     <!-- MAIN CONTENT -->
-                    <div class="main-conent">
+                    <div class="main-content">
                         <h3>Select Fuel Type</h3>
+                        <div class="dropdown-selection"></div>
                         <!-- Drop down selection -->
+                        <div class='dropdown'>
+                            <div class='dropdown-btn'>Select Fuel</div>
+                        </div>
+                        <div class='dropdown-content'>
+                            <div class='dropdown-item'>
+                                <p>Petrol</p>
+                            </div>
+                            <div class='dropdown-item'>
+                                <p>Diesel</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-content">
+                        <label class='label' name="Amount">Enter Your {selected} Amount</label>
+                        <input type="number" name="Amount" />
+                        <h3 class='label'>Enter amount of fuel per liter</h3>
+                        <label name="diesel-price">Enter Diesel Price per Liter</label>
+                        <div class='bottom-container'>
+                            <div class="counter-container">
+                                <p class="icon">^</p>
+                                <div class="count"></div>
+                                <p class="counter-container"></p>
+                            </div>
+                            <p class='liters'></p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="button"></div>
     </div>
-
     <script src="./Js/app.js"></script>
 </body>
 
