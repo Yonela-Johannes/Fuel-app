@@ -1,7 +1,11 @@
 import { FuelForcast } from "../mocha/fuelforecast.js";
 const fuelforecast = FuelForcast()
-import { user } from '../data/user.js'
 
+const date = new Date()
+const day = date.getDay()
+
+let user = JSON.parse(localStorage.getItem('user'))
+console.log(day)
 console.log(user)
 const enterFuelAmount = document.querySelector('.entered-fuel-amount')
 const amountValue = document.querySelector('.input-amount')
@@ -19,7 +23,7 @@ fuelPriceElem.innerHTML = `Entered Amount: <span class='lit'>R ${defaultAmount.t
 calcLitres.innerHTML = `Estimated Litres: <span class='lit'>${defaultAmount} litres<span> `
 calcAmount.innerHTML = `
     <div class='cost-title'>Cost of litres</div>
- <div class='lit-container'>Estimated Amount: <span class='rand'>R ${defaultAmount.toFixed(2)}<span></div> `
+ <div class='lit-container'>Amount: <span class='rand'>R ${defaultAmount.toFixed(2)}<span></div> `
 calcChange.innerHTML = `change: <span class='lit'>R ${defaultAmount.toFixed(2)}<span> `
 
 const calculateFuel = () => {
@@ -37,7 +41,7 @@ const calculateFuel = () => {
         }<span> litres`
     calcAmount.innerHTML = `
         <div class='cost-title'>Cost of ${enteredLitres} litres</div>
-    <div class='lit-container'>Estimated Amount: <span class='rand'> R ${fuelforecast.fuelCosLitres(enteredLitres)
+    <div class='lit-container'>Amount: <span class='rand'> R ${fuelforecast.fuelCosLitres(enteredLitres)
         }<span></div>`
     calcChange.innerHTML = `change: <span class='lit'>R ${fuelforecast.change(fuelforecast.fuelCosLitres(enteredLitres))}<span> `
 

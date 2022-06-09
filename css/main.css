@@ -13,7 +13,9 @@
   --tertiary-bg-cl: rgb(117, 115, 115);
   --primary--desktop-bg: rgb(182, 182, 182);
 }
-
+canvas{
+    background-color: #ffffff62;
+}
 .nav {
   display: hidden;
   position: absolute;
