@@ -1,7 +1,12 @@
+import { FuelForcast } from "../mocha/fuelforecast.js";
+
+const fuelforecast = FuelForcast()
+
 const dropdownButton = document.querySelector('.dropdown-btn')
 const dropdownContent = document.querySelector('.dropdown-content')
 const dropdownItem = document.querySelectorAll('.dropdown-item')
 // init dropdown selection menu
+
 
 const petrolButton = document.querySelector('.petrol')
 const dieselButton = document.querySelector('.diesel')
@@ -9,6 +14,8 @@ const dieselButton = document.querySelector('.diesel')
 const fuelCostContainer = document.querySelector('.amount')
 const userAmountContainer = document.querySelector('.user-amount')
 const count = document.querySelector('.count')
+
+
 
 count.innerHTML = 0
 

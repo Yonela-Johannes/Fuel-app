@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/main.css" />
 </head>
 
 <body>
@@ -46,30 +46,63 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="amount"></div>
+                        <div class="amount">
+                            <div class='input-container'>
+                                <label class='label' name="Amount">Enter fuel price</label>
+                                <input class='input-amount' value="" type="number" />
+                            </div>
+                        </div>
                     </div>
                     <div class="main-content">
                         <div class="user-amount">
-                            <label class='label' name="Amount">Enter Your {selected} Amount</label>
-                            <input type="number" name="Amount" disabled />
+                            <div class='input-container'>
+                                <label class='label' name="Amount">Enter fuel amount</label>
+                                <input class='entered-fuel-amount' value="" type="number" />
+                            </div>
                         </div>
                         <h3 class='label'>Enter amount of fuel per liter</h3>
                         <label name="diesel-price">Enter Diesel Price per Liter</label>
                         <div class='bottom-container'>
                             <div class="counter-container">
-                                <p class="icon">^</p>
-                                <div class="count"></div>
-                                <p class="counter-container"></p>
+                                <div class="counter-container">
+                                    <input class='litres-amount' value="" type="number" />
+                                </div>
                             </div>
                             <p class='liters'></p>
+                        </div>
+                        <div class="button calc">Calculate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- MAIN CONTENT-->
+        <div class="main second-main">
+            <!-- <h1 class="title header">Fuel Forecast</h1> -->
+            <div class="second-wrapper">
+                <h3 class="sub-title">Monthly Fuel Forecast</h3>
+                <div class="content">
+                    <!-- MAIN CONTENT -->
+                    <div class="main-content">
+                        <h3 class="calc-litres"></h3>
+                        <h3 class="calc-amount"></h3>
+                        <div>
+                            <p class="save-budget">Save Budget</p>
+                            <div class="button save">Save</div>
+                        </div>
+                    </div>
+                    <div class="main-content">
+                        <div class="user-amount">
+                            <label class='label' name="Amount">Data</label>
+                            <div class="estimated-litres-data"></div>
+                            <div class="estimated-amount-data"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="button"></div>
+
     </div>
-    <script src="./Js/app.js" type="module"></script>
+    <script src="./Js/main.js" type="module"></script>
 </body>
 
 </html>
