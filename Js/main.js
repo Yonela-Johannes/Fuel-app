@@ -93,6 +93,7 @@ const saveData = () => {
     user.fuelPrice[today] = fuelforecast.getFuelPrice()
     localStorage.setItem('user', JSON.stringify(users))
     JSON.parse(localStorage.getItem('user'))
+    location.reload()
 }
 
 
