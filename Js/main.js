@@ -58,7 +58,7 @@ calcAmount.innerHTML = `
 calcChange.innerHTML = `change: <span class='lit'>R ${user.change.toFixed(2)}<span> `
 
 const calculateFuel = () => {
-    const amount = amountValue.value ? amountValue.value : user.fuelPrice[today].toFixed(2)
+    const amount = amountValue.value ? amountValue.value : user.fuelPrice[today]
     const enteredAmount = enterFuelAmount.value
     const enteredLitres = litresAmount.value
 
