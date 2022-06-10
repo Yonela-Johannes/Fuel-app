@@ -3,7 +3,7 @@ const fuelforecast = FuelForcast()
 
 const date = new Date()
 const day = date.getDay()
-
+const today = day - 1
 let user = JSON.parse(localStorage.getItem('user'))
 const enterFuelAmount = document.querySelector('.entered-fuel-amount')
 const amountValue = document.querySelector('.input-amount')
@@ -20,25 +20,22 @@ const storedData = document.querySelector('.stored-data')
 const weeklyData = document.querySelector('.weekly-data')
 
 const defaultAmount = 0
-console.log(user)
+
+
 storedData.innerHTML = `
     <div class='name'>Name: ${user.name}</div>
     <div class='age'>age: ${user.age}</div>
     <div class='location'>From: ${user.location}</div>
-    <div class='calc-details'>
-    ${user.lastWeekTotalAmount.toFixed(2)}
-    </div>
     `
 weeklyData.innerHTML = `
-
     <div class='location'>Last Week Total Amount</div>
     <div class='rand'>R ${user.lastWeekTotalAmount.toFixed(2)}</div>
     <div class='location'>Last Week Total litres</div>
     <div class='rand'>${user.lastWeekTotalLitres.toFixed(2)} litres</div>
 
-    `   
+    `
 
-currentFuelPrice.innerHTML = `Current price: <span class='lit'>R ${user.fuelPrice[day - 1].toFixed(2)}<span> `
+currentFuelPrice.innerHTML = `Current price: <span class='lit'>R ${user.fuelPrice[today]}<span> `
 fuelPriceElem.innerHTML = `Entered Amount: <span class='lit'>R ${user.enteredAmount.toFixed(2)}<span> `
 calcLitres.innerHTML = `Estimated Litres: <span class='lit'>${defaultAmount.toFixed(1)} litres<span> `
 calcAmount.innerHTML = `
@@ -47,7 +44,7 @@ calcAmount.innerHTML = `
 calcChange.innerHTML = `change: <span class='lit'>R ${user.change.toFixed(2)}<span> `
 
 const calculateFuel = () => {
-    const amount = amountValue.value ? amountValue.value : user.fuelPrice[day - 1].toFixed(2)
+    const amount = amountValue.value ? amountValue.value : user.fuelPrice[today].toFixed(2)
     const enteredAmount = enterFuelAmount.value
     const enteredLitres = litresAmount.value
 
@@ -75,10 +72,11 @@ const saveData = () => {
 
     fuelforecast.setPrice(enteredAmount)
     const users = JSON.parse(localStorage.getItem('user'))
-    users.fuelPrice[day] = fuelforecast.getFuelPrice()
-    Object.values(users.weeklyData[0])[day - 1].litres = fuelforecast.fuelCost()
+    users.fuelPrice[today] = fuelforecast.getFuelPrice()
 
-    user.fuelPrice[day - 1] = fuelforecast.getFuelPrice()
+    Object.values(users.weeklyData[0])[today].litres = fuelforecast.fuelCost()
+    Object.values(users.weeklyData[0]).map(elem => elem)[today].amount = fuelforecast.getPrice()
+    user.fuelPrice[today] = fuelforecast.getFuelPrice()
     localStorage.setItem('user', JSON.stringify(users))
 }
 

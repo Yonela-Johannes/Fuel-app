@@ -40,7 +40,7 @@ export let user =
             'previousWeek': 0,
         },
         'Friday': {
-            'litres': 1.23,
+            'litres': 0,
             'previousWeekLitres': 0,
             "amount": 0,
             'previousWeek': 0,
@@ -60,10 +60,10 @@ export let user =
     }],
 }
 
-user.fuelPrice[day - 1] = user.fuelPrice[day - 1] == 0 ? 19.25 : user.fuelPrice[day - 1]
+user.fuelPrice[day - 1] = 19.25
 
 
-const week = Object.keys(user.weeklyData[0]) ? Object.keys(user.weeklyData[0]) : []
+const week = Object.keys(user.weeklyData[0]) ? Object.keys(user.weeklyData[0]) : ["Monday", "Tuesday", 'Wednesday', "Thursday", "Friday", "Saturday", "Sunday"]
 // getting litres
 const previousWeekLitres = () => Object.values(user.weeklyData[0]).map(elem => elem.previousWeekLitres)
 const weeklyLitres = () => Object.values(user.weeklyData[0]).map(elem => elem.litres)
@@ -141,7 +141,7 @@ const myChart = new Chart(
 const fuelData = {
     labels: week,
     datasets: [{
-        label: 'My First dataset',
+        label: 'Fuel Price',
         backgroundColor: 'rgb(255, 99, 132)',
         borderColor: 'rgb(255, 99, 132)',
         data: user.fuelPrice,
