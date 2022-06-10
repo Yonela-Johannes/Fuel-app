@@ -128,7 +128,17 @@ input{
     border-radius: 15px;
     border: 1px solid rgb(89, 89, 89);
 }
-
+.user-content{
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid rgb(89, 89, 89);
+}
 .second-main{
     margin-top: 60px;
 }
@@ -259,6 +269,17 @@ input{
     justify-content: center;
     flex-direction: column;
 }
+.name{
+    color: white;
+    font-weight: bold;
+}
+.stored-data {
+    margin-top: 10px;
+    width: 100%;
+    margin-right: 10px;
+    border-bottom: 1px solid gray;
+    padding-bottom: 10px;
+}
 @media screen and (min-width: 752px){
   .nav {
     position: fixed;
@@ -327,6 +348,18 @@ input{
         border-radius: 5px;
         border: 1px solid rgb(89, 89, 89);
     }
+    .user-content{
+        margin: 5px;
+        display: flex;
+        width: 300px;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: start;
+        height: 340px;
+        padding: 20px;
+        border-radius: 5px;
+        border: 1px solid rgb(89, 89, 89);
+    }
   .second-content{
     display: flex;
     flex-direction: row;
@@ -377,6 +410,13 @@ input{
         justify-content: center;
         display: flex;
         flex-direction: column;
+        margin-top: 10px;
+    }
+    .current-fuel-price{
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        display: flex;
         margin-top: 10px;
     }
     .fuel-price{
