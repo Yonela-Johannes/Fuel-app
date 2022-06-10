@@ -15,11 +15,9 @@
         <div class="nav">
             <div class="navbar">
                 <div class="logo">
-                    <span>F</span>F
+                    <span class="f">F</span>F
                 </div>
                 <div class="user-profile">
-                    <p>image</p>
-                    <p>Name</p>
                 </div>
             </div>
         </div>
@@ -35,7 +33,7 @@
                         <!-- Drop down selection -->
                         <div class='dropdown'>
                             <div class='dropdown-btn'>
-                                <p>Select Fuel</p>
+                                <p class="fuel-selection">Select Fuel</p>
                             </div>
                             <div class='dropdown-content hide'>
                                 <div class='dropdown-item'>
@@ -48,7 +46,7 @@
                         </div>
                         <div class="amount">
                             <div class='input-container'>
-                                <label class='label' name="Amount">Enter fuel price</label>
+                                <label class='label' name="Amount">Enter <span class='fuel-change-two'>fuel</span> price</label>
                                 <input class='input-amount' value="" type="number" />
                             </div>
                         </div>
@@ -56,19 +54,17 @@
                     <div class="main-content">
                         <div class="user-amount">
                             <div class='input-container'>
-                                <label class='label' name="Amount">Enter fuel amount</label>
+                                <label class='label' name="Amount">Enter <span class='fuel-change'>fuel</span> amount</label>
                                 <input class='entered-fuel-amount' value="" type="number" />
                             </div>
                         </div>
                         <h3 class='label'>Enter amount of fuel per liter</h3>
-                        <label name="diesel-price">Enter Diesel Price per Liter</label>
-                        <div class='bottom-container'>
+                        <label name="diesel-price">Enter <span class="fuel-change-three">fuel</span> liter</label>
                             <div class="counter-container">
                                 <div class="counter-container">
                                     <input class='litres-amount' value="" type="number" />
                                 </div>
                             </div>
-                        </div>
                         <div class="button calc">Calculate</div>
                     </div>
                 </div>
@@ -76,7 +72,6 @@
         </div>
         <!-- MAIN CONTENT-->
         <div class="main second-main">
-            <!-- <h1 class="title header">Fuel Forecast</h1> -->
             <div class="second-wrapper">
                 <h3 class="sub-title">Weekly Fuel Forecast</h3>
                 <div class="second-content">

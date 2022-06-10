@@ -11,6 +11,12 @@ const amountValue = document.querySelector('.input-amount')
 const fuelPriceElem = document.querySelector('.fuel-price')
 const calculateButton = document.querySelector('.calc')
 const save = document.querySelector('.save')
+
+const petrolButton = document.querySelector('.petrol')
+const dieselButton = document.querySelector('.diesel')
+const dropdownButton = document.querySelector('.dropdown-btn')
+const dropdownContent = document.querySelector('.dropdown-content')
+const userProfile = document.querySelector('.user-profile')
 const currentFuelPrice = document.querySelector('.current-fuel-price')
 const calcLitres = document.querySelector('.calc-litres')
 const calcAmount = document.querySelector('.calc-amount')
@@ -18,14 +24,22 @@ const litresAmount = document.querySelector('.litres-amount')
 const calcChange = document.querySelector('.calc-change')
 const storedData = document.querySelector('.stored-data')
 const weeklyData = document.querySelector('.weekly-data')
-
+const fuelSelection = document.querySelector('.fuel-selection')
+const fuelChange = document.querySelector('.fuel-change')
+const fuelChangeTwo = document.querySelector('.fuel-change-two')
+const fuelChangeThree = document.querySelector('.fuel-change-three')
+console.log(fuelChange)
 const defaultAmount = 0
 
-
+userProfile.innerHTML = `<img src=${user.image} alt='' class="image" />
+                            <p class="name">${user.name}</p>
+`
 storedData.innerHTML = `
     <div class='name'>Name: ${user.name}</div>
     <div class='age'>age: ${user.age}</div>
-    <div class='location'>From: ${user.location}</div>
+    <div class='location'>From: ${user.location}
+    <div class='user-fuel>${user.fuel}</div>
+    </div>
     `
 weeklyData.innerHTML = `
     <div class='location'>Last Week Total Amount</div>
@@ -78,9 +92,35 @@ const saveData = () => {
     Object.values(users.weeklyData[0]).map(elem => elem)[today].amount = fuelforecast.getPrice()
     user.fuelPrice[today] = fuelforecast.getFuelPrice()
     localStorage.setItem('user', JSON.stringify(users))
+    JSON.parse(localStorage.getItem('user'))
 }
 
 
-calculateButton.addEventListener('click', calculateFuel)
+const toggleMenu = () => {
+    dropdownContent.classList.toggle('hide')
+}
+const petrol = () => {
+    user.fuel = 'petrol'
+    fuelSelection.innerHTML = 'Petrol'
+    fuelChange.innerHTML = 'petrol'
+    fuelChangeTwo.innerHTML = 'petrol'
+    fuelChangeThree.innerHTML = 'petrol'
+    localStorage.setItem('user', JSON.stringify(user))
+    dropdownContent.classList.toggle('hide')
+}
 
+const diesel = () => {
+    user.fuel = 'diesel'
+    fuelChange.innerHTML = 'diesel'
+    fuelSelection.innerHTML = 'Diesel'
+    fuelChangeTwo.innerHTML = 'diesel'
+    fuelChangeThree.innerHTML = 'diesel'
+    localStorage.setItem('user', JSON.stringify(user))
+    dropdownContent.classList.toggle('hide')
+}
+
+dropdownButton.addEventListener('click', toggleMenu)
+petrolButton.addEventListener('click', petrol)
+dieselButton.addEventListener('click', diesel)
+calculateButton.addEventListener('click', calculateFuel)
 save.addEventListener('click', saveData)
