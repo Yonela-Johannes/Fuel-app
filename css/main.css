@@ -20,6 +20,10 @@ html {
 canvas{
     background-color: #ffffff62;
 }
+
+input{
+    margin: 0 10px;
+}
 .nav {
   display: hidden;
   position: absolute;
