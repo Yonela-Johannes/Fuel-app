@@ -1,65 +1,160 @@
-import { FuelForcast } from "../mocha/fuelforecast.js";
+const date = new Date()
+const day = date.getDay()
 
-const fuelforecast = FuelForcast()
-
-const dropdownButton = document.querySelector('.dropdown-btn')
-const dropdownContent = document.querySelector('.dropdown-content')
-const dropdownItem = document.querySelectorAll('.dropdown-item')
-// init dropdown selection menu
-
-
-const petrolButton = document.querySelector('.petrol')
-const dieselButton = document.querySelector('.diesel')
-
-const fuelCostContainer = document.querySelector('.amount')
-const userAmountContainer = document.querySelector('.user-amount')
-const count = document.querySelector('.count')
-
-
-
-count.innerHTML = 0
-
-
-const toggleMenu = () => {
-    dropdownContent.classList.toggle('hide')
+export let user =
+{
+    name: 'Linda',
+    image: '../img/linda.png',
+    age: 30,
+    location: 'Limpopo',
+    enteredAmount: 0,
+    totalLitres: 0,
+    lastWeekTotalLitres: 0,
+    lastWeekTotalAmount: 0,
+    change: 0,
+    fuel: '',
+    fuelPrice: [0, 0, 0, 0, 0, 0, 0],
+    weeklyData: [{
+        'Monday': {
+            'litres': 0,
+            'previousWeekLitres': 0,
+            "amount": 0,
+            'previousWeek': 0,
+        },
+        'Tuesday': {
+            'litres': 0,
+            'previousWeekLitres': 0,
+            "amount": 0,
+            'previousWeek': 0,
+        },
+        'Wednesday': {
+            'litres': 0,
+            'previousWeekLitres': 0,
+            "amount": 0,
+            'previousWeek': 0,
+        },
+        'Thursday': {
+            'litres': 0,
+            'previousWeekLitres': 0,
+            "amount": 0,
+            'previousWeek': 0,
+        },
+        'Friday': {
+            'litres': 0,
+            'previousWeekLitres': 0,
+            "amount": 0,
+            'previousWeek': 0,
+        },
+        'Saturday': {
+            'litres': 0,
+            'previousWeekLitres': 0,
+            "amount": 0,
+            'previousWeek': 0,
+        },
+        'Sunday': {
+            'litres': 0,
+            'previousWeekLitres': 0,
+            "amount": 0,
+            'previousWeek': 0,
+        }
+    }],
 }
-const displayInputContainer = (container, message, inputName, disabled) => (
-    container.innerHTML = `<div class='input-container'>
-                                <label class='label' name="Amount">${message}</label>           
-                                <input class='amount' type="number" name=${inputName} disabled/>
-                            </div>`
-)
-displayInputContainer(fuelCostContainer, 'Enter fuel cost', 'amount')
-displayInputContainer(userAmountContainer, 'Enter your amount', 'amount')
 
-const petrol = () => {
-    fuelCostContainer.innerHTML = `<div class='input-container'>
-                                <label class='label' name="Amount">Enter petrol Price per Liter</label>           
-                                <input class='fuel-input' type="number" name="Amount"/>
-                            </div>`
-
-    userAmountContainer.innerHTML = `<div class='input-container'>
-                                <label class='label' name="Amount">Enter Your amount</label>           
-                                <input class='fuel-input' type="number" name="Amount"/>
-                            </div>`
-    dropdownContent.classList.toggle('hide')
-}
-
-const diesel = () => {
-    console.log('diesel')
-    fuelCostContainer.innerHTML = `<div class='input-container'>
-                                <label class='label' name="Amount">Enter diesel Price per Liter</label>           
-                                <input class='fuel-input' type="number" name="Amount"/>
-                            </div>`
-
-    userAmountContainer.innerHTML = `<div class='input-container'>
-                                <label class='label' name="Amount">Enter Your amount</label>           
-                                <input class='fuel-input' type="number" name="Amount"/>
-                            </div>`
-    dropdownContent.classList.toggle('hide')
-}
+user.fuelPrice[day - 1] = 19.25
 
 
-dropdownButton.addEventListener('click', toggleMenu)
-petrolButton.addEventListener('click', petrol)
-dieselButton.addEventListener('click', diesel)
+const week = Object.keys(user.weeklyData[0]) ? Object.keys(user.weeklyData[0]) : ["Monday", "Tuesday", 'Wednesday', "Thursday", "Friday", "Saturday", "Sunday"]
+// getting litres
+const previousWeekLitres = () => Object.values(user.weeklyData[0]).map(elem => elem.previousWeekLitres)
+const weeklyLitres = () => Object.values(user.weeklyData[0]).map(elem => elem.litres)
+const getTotalLitres = () => Object.values(user.weeklyData[0]).map(elem => elem.litres).reduce((total, acc) => total + acc)
+const previousWeekAmounts = () => Object.values(user.weeklyData[0]).map(elem => elem.previousWeek)
+const weeklyAmounts = () => Object.values(user.weeklyData[0]).map(elem => elem.amount)
+const getTotalAmount = () => Object.values(user.weeklyData[0]).map(elem => elem.amount).reduce((total, acc) => total + acc)
+user.lastWeekTotalLitres = getTotalLitres()
+user.lastWeekTotalAmount = getTotalAmount()
+user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : localStorage.setItem('user', JSON.stringify(user))
+
+// getting amount
+
+
+// Monthly Chart
+const litresFuel = {
+    labels: week,
+    datasets: [{
+        label: 'last Week',
+        backgroundColor: 'rgb(255, 99, 132)',
+        borderColor: 'rgb(255, 99, 132)',
+        data: previousWeekLitres()
+    }, {
+        label: 'Current Week',
+        backgroundColor: 'green',
+        data: weeklyLitres(),
+    }
+
+    ]
+};
+
+const monthlyConfig = {
+    type: 'bar',
+    data: litresFuel,
+    options: {}
+};
+
+const myLitresChart = new Chart(
+    document.getElementById('monthlyFuelChartForecast'),
+    monthlyConfig
+);
+
+const data = {
+    labels: week,
+    datasets: [{
+        label: 'last Week',
+        backgroundColor: 'grey',
+        borderColor: 'rgb(255, 99, 132)',
+        data: previousWeekAmounts(),
+    },
+    {
+        label: 'current Week',
+        backgroundColor: 'green',
+        borderColor: 'gray',
+        data: weeklyAmounts(),
+
+    }
+
+    ]
+};
+
+const config = {
+    type: 'bar',
+    data: data,
+    options: {}
+};
+
+const myChart = new Chart(
+    document.getElementById('fuelChartForecast'),
+    config
+);
+
+// Changes in Fuel
+
+const fuelData = {
+    labels: week,
+    datasets: [{
+        label: 'Fuel Price',
+        backgroundColor: 'rgb(255, 99, 132)',
+        borderColor: 'rgb(255, 99, 132)',
+        data: user.fuelPrice,
+    }]
+};
+
+const fuelConfig = {
+    type: 'bar',
+    data: fuelData,
+    options: {}
+};
+
+const fuelChart = new Chart(
+    document.getElementById('changesInFuelForecast'),
+    fuelConfig
+);
